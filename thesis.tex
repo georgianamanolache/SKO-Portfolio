@@ -1,0 +1,180 @@
+%
+% TU/e Style Master Thesis template for LaTeX
+%
+% Public version 1.0
+% 2010 - 2013 Thijs Nugteren and Joos Buijs
+%
+% THIS IS THE MAIN FILE (i.e. compile this file, compiling the others directly won't work)
+%
+\documentclass[a4paper,10pt,twoside]{report}
+
+%all the other includes etc. are done in the thesis.sty file.
+\usepackage{thesis}
+
+%
+% These commands need to be defined in order to produce a correct and personalized document
+%
+\newcommand{\shortdoctitle}{SKO %Didactiek and Onderzoeksvaardigheden
+Didactics and Research}
+\newcommand{\doctitle}{SKO %Didactiek and Onderzoeksvaardigheden}
+Didactics and Research}
+\newcommand{\docsubtitle}{Portfolio}
+
+\newcommand{\me}{ir. Georgiana Manolache}
+\newcommand{\keywords}{keyword1, keyword2, keyword3}
+\newcommand{\version}{1.0 version}
+\newcommand{\monthYear}{March 2021}
+
+%Be sure to use all the titles for your committee members!!! (their names show up on the very first page!)
+\newcommand{\firstCommitteeMember}{No\"{e}lle van de Moosdijk, n.vandemoosdijk@fontys.nl}
+%\newcommand{\secondCommitteeMember}{Vilma Lenselink, v.lenselink@fontys.nl (MKO Research)}
+%\newcommand{\thirdCommitteeMember}{Your Third Committee Member, usually the external member}
+
+\author{\me}
+
+%
+% PDF settings
+%
+\usepackage{pdfpages} %<-----------
+\hypersetup
+{
+    pdfauthor={\me},
+    pdftitle={\shortdoctitle},
+    pdfsubject={\doctitle},
+    pdfkeywords={\keywords}
+}
+
+% 
+% Refs
+%
+\usepackage{cleveref}
+\usepackage[numbers]{natbib}
+%
+% Acronym
+%
+\usepackage[utf8]{inputenc}
+\usepackage[acronym, toc]{glossaries}
+\makeglossaries
+\input{glossary}
+\input{acronyms}
+
+%
+% Table
+%
+\usepackage{tabularx}
+\usepackage{fancybox}
+\usepackage{tikz}
+\usepackage{float}
+
+\begin{document}
+
+%use this include for PDF and distribution versions
+\pagenumbering{roman}
+\include{titlepage}
+
+\normalsize
+
+\clearemptydoublepage
+
+%Sometimes line numbers are nice, uncomment the next line to enable:
+%\linenumbers
+
+%It could be handy to have a list of todos and brainstorms in your thesis
+%\chapter*{*General todos*}\todo{remove this chapter}
+%\input{chapters/general_todos}
+
+%\chapter*{*Brainstorm results*}\todo{remove this chapter}
+%\input{chapters/brainstorm_results}
+
+% \chapter*{Abstract}\label{chapter:abstract}
+% \input{chapters/abstract}
+
+% \clearemptydoublepage
+
+%An executive summary if you want:
+%\chapter*{Executive summary}\label{chapter:executive_summary}
+%\input{chapters/executive_summary}
+
+%\clearemptydoublepage
+
+
+\chapter*{Preface}\label{chapter:preface}
+\input{chapters/preface}
+
+\clearemptydoublepage
+
+\tableofcontents
+
+\clearemptydoublepage
+
+\printglossary
+
+\clearemptydoublepage
+
+\printglossary[type=\acronymtype]
+
+\clearemptydoublepage
+
+\listoffigures
+
+\clearemptydoublepage
+
+\listoftables
+
+\clearemptydoublepage
+
+% \lstlistoflistings
+
+% \clearemptydoublepage
+
+\chapter{Introduction}\label{chapter:introduction}
+\setcounter{page}{0}
+\pagenumbering{arabic}
+%from here on, start the 'real' page numbering, from 1, with normal digits
+\input{chapters/introduction}
+
+\clearemptydoublepage
+
+% \chapter{Profile sketch}\label{chapter:profile}
+% \input{chapters/profile_sketch/profile}
+
+\clearemptydoublepage
+
+\chapter{Didactics}\label{chapter:didactics}
+\input{chapters/didactics_testing_tel/didactics}
+
+\clearemptydoublepage
+
+\chapter{Testing}\label{chapter:testing}
+\input{chapters/didactics_testing_tel/testing}
+
+\clearemptydoublepage
+
+\chapter{TEL}\label{chapter:tel}
+\input{chapters/didactics_testing_tel/tel}
+
+\clearemptydoublepage
+
+\chapter{Research}\label{chapter:research}
+\input{chapters/research/research}
+
+\clearemptydoublepage
+
+\chapter{Conclusions}\label{chapter:conclusions}
+\input{chapters/conclusions}
+
+\clearemptydoublepage
+
+%Choose a good bibliography style, plain would do often, but these might be nice too
+%\bibliographystyle{these}
+%\bibliographystyle{plainurl}
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+
+\clearemptydoublepage
+
+\appendix
+\addcontentsline{toc}{chapter}{Appendix}
+\input{appendices/main}
+
+\end{document}
